@@ -1,4 +1,4 @@
-EXEEXT   =
+EXEEXT   = .exe
 OBJEXT   = .o
 DEFINES	 =
 CFLAGS   = -O2 -Isrc -Isrc/libspectrum -Wall
@@ -58,7 +58,7 @@ OBJ = $(SRC:.c=.o)
 all: tape2wav$(EXEEXT)
 
 tape2wav$(EXEEXT): $(OBJ) src/tape2wav.o
-	gcc -o $@ $+ -lm
+	gcc -o $@ $+
 
 clean:
 	rm -rf tape2wav$(EXEEXT) $(OBJ) src/tape2wav.o

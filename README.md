@@ -23,3 +23,9 @@ This utility generates a wave file from a tape file. It uses [`libspectrum`](htt
 The generated wave files were tested only on the [Fuse](http://fuse-emulator.sourceforge.net/fuse.php) and EightyOne emulators. I've tested files from 8-bit, mono, 11,025 Hz to 16-bit, stereo, 192,000 Hz.
 
 Please let me know your experiences loading the audio into the actual machines, including which device was used to play the wave files.
+
+## Coroutines
+
+I'm working on another utility that'll play **TZX** and **T81** tapes directly to the audio device. For that, I need to generate wave data in chunks, which would be somewhat difficult specially in the **T81** case. I decided to use soft coroutines to make my life easier, and ended up with the macros in `src/coro.h`.
+
+The end result is something that resembles BASIC (with GOTOs and GOSUBs), see usage examples in `tzx_play` and `t81_play`.

@@ -214,17 +214,17 @@ static size_t t81_play( tape_t* tape, unsigned sample_rate, uint8_t* pcm_u8, siz
       CORO_GOSUB( OUTPUT, sine[ CORO_K & 255 ], 0 );
     }
     
- 		if ( OPTEXTRANUL != 0 )
-		{
-			CORO_I = state->borrow0 / 100;
-			state->borrow0 += OPTEXTRANUL * sample_rate / 22050;
+    if ( OPTEXTRANUL != 0 )
+    {
+      CORO_I = state->borrow0 / 100;
+      state->borrow0 += OPTEXTRANUL * sample_rate / 22050;
 
-			if ( ( state->borrow0 / 100 ) > CORO_I )
-			{
-				state->borrow0 -= CORO_I * 100;
+      if ( ( state->borrow0 / 100 ) > CORO_I )
+      {
+        state->borrow0 -= CORO_I * 100;
         CORO_GOSUB( OUTPUT, 128, 0 );
-			}
-		}
+      }
+    }
     
     CORO_RET();
     
@@ -232,23 +232,23 @@ static size_t t81_play( tape_t* tape, unsigned sample_rate, uint8_t* pcm_u8, siz
     CORO_GOSUB( ZEROES, OPTZEROBEFOREONE * sample_rate / 22050, 0 );
     CORO_J = 58 * sample_rate / 22050;
     
-		for ( CORO_I = 0; CORO_I < CORO_J; CORO_I++ )
+    for ( CORO_I = 0; CORO_I < CORO_J; CORO_I++ )
     {
       CORO_K = CORO_I * 9 * 256 / CORO_J;
       CORO_GOSUB( OUTPUT, sine[ CORO_K & 255 ], 0 );
     }
 
- 		if ( OPTEXTRAONE != 0 )
-		{
-			CORO_I = state->borrow1 / 100;
-			state->borrow1 += OPTEXTRAONE * sample_rate / 22050;
+    if ( OPTEXTRAONE != 0 )
+    {
+      CORO_I = state->borrow1 / 100;
+      state->borrow1 += OPTEXTRAONE * sample_rate / 22050;
 
-			if ( ( state->borrow1 / 100 ) > CORO_I )
-			{
-				state->borrow1 -= CORO_I * 100;
+      if ( ( state->borrow1 / 100 ) > CORO_I )
+      {
+        state->borrow1 -= CORO_I * 100;
         CORO_GOSUB( OUTPUT, 128, 0 );
-			}
-		}
+      }
+    }
     
     CORO_RET();
     

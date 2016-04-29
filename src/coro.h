@@ -10,7 +10,7 @@
   switch ( coro->step ) { \
   case CORO_BEGIN:
 
-/* Use to define labels that are target to GOTO and GOSUB */
+/* Use to define labels which are targets to GOTO and GOSUB */
 #define CORO_LABEL( x ) \
   case x:
 
@@ -27,7 +27,7 @@
     goto CORO_again; \
   } while ( 0 )
 
-/* Go to a subroutine, execution continues when the subroutine returns via RET */
+/* Go to a subroutine, execution continues until the subroutine returns via RET */
 /* x is the subroutine label, y and z are the A and B arguments */
 #define CORO_GOSUB( x, y, z ) \
   do { \

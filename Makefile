@@ -1,0 +1,64 @@
+EXEEXT   = .exe
+OBJEXT   = .o
+DEFINES	 =
+CFLAGS   = -O0 -g -Isrc -Isrc/libspectrum -Wall
+CXXFLAGS = -O0 -g -Isrc -Isrc/libspectrum -Wall
+
+SRC = \
+	src/libspectrum/bzip2.c \
+	src/libspectrum/creator.c \
+	src/libspectrum/crypto.c \
+	src/libspectrum/csw.c \
+	src/libspectrum/dck.c \
+	src/libspectrum/garray.c \
+	src/libspectrum/ghash.c \
+	src/libspectrum/gslist.c \
+	src/libspectrum/ide.c \
+	src/libspectrum/libspectrum.c \
+	src/libspectrum/memory.c \
+	src/libspectrum/microdrive.c \
+	src/libspectrum/plusd.c \
+	src/libspectrum/pzx_read.c \
+	src/libspectrum/rzx.c \
+	src/libspectrum/sna.c \
+	src/libspectrum/snapshot.c \
+	src/libspectrum/snap_accessors.c \
+	src/libspectrum/snp.c \
+	src/libspectrum/sp.c \
+	src/libspectrum/symbol_table.c \
+	src/libspectrum/szx.c \
+	src/libspectrum/tap.c \
+	src/libspectrum/tape.c \
+	src/libspectrum/tape_accessors.c \
+	src/libspectrum/tape_block.c \
+	src/libspectrum/tape_set.c \
+	src/libspectrum/timings.c \
+	src/libspectrum/tzx_read.c \
+	src/libspectrum/tzx_write.c \
+	src/libspectrum/utilities.c \
+	src/libspectrum/warajevo_read.c \
+	src/libspectrum/wav.c \
+	src/libspectrum/z80.c \
+	src/libspectrum/z80em.c \
+	src/libspectrum/zlib.c \
+	src/libspectrum/zxs.c \
+	src/common.c \
+	src/t81.c \
+	src/tzx.c \
+  src/tape.c
+
+OBJ = $(SRC:.c=.o)
+
+%$(OBJEXT): %.cpp
+	g++ $(CXXFLAGS) -c $< -o $@
+
+%$(OBJEXT): %.c
+	gcc $(CFLAGS) -c $< -o $@
+
+all: tape2wav$(EXEEXT)
+
+tape2wav$(EXEEXT): $(OBJ) src/tape2wav.o
+	gcc -o $@ $+
+
+clean:
+	rm -rf tape2wav$(EXEEXT) $(OBJ) src/tape2wav.o

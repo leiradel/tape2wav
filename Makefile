@@ -1,8 +1,8 @@
 EXEEXT   =
 OBJEXT   = .o
 DEFINES	 =
-CFLAGS   = -O2 -Isrc -Isrc/libspectrum -Wall
-CXXFLAGS = -O2 -Isrc -Isrc/libspectrum -Wall
+CFLAGS   = -O2 -Isrc -Isrc/libspectrum -D_strdup=strdup -Wall
+CXXFLAGS = -O2 -Isrc -Isrc/libspectrum -D_strdup=strdup -Wall
 
 SRC = \
 	src/libspectrum/bzip2.c \

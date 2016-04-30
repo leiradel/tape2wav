@@ -61,7 +61,7 @@ tape2wav$(EXEEXT): $(OBJ) src/tape2wav.o
 	gcc -o $@ $+ -lm
 
 playtape$(EXEEXT): $(OBJ) src/playtape.o
-	gcc -o $@ $+ -lSDL2main -lSDL2
+	gcc -o $@ $+ -lSDL2main -lSDL2 -lm
 
 clean:
 	rm -rf $(OBJ) tape2wav$(EXEEXT) src/tape2wav.o playtape$(EXEEXT) src/playtape.o

@@ -125,10 +125,6 @@ int main( int argc, const char* argv[] )
     return 1;
   }
   
-  // sample rate, mono/stereo, 8/16-bits
-  // playtape
-  // retrotape
-  
   tape_init();
   
   data = read_file( input_name, &size );

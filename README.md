@@ -14,18 +14,36 @@ This utility generates a wave file from a tape file. It uses [`libspectrum`](htt
     -8                 Unsigned 8-bits per sample (default signed 16-bits)
     -h                 This page
 
-## T81
+# playtape
+
+This utility uses SDL2 to play tapes directly to an audio device.
+
+## Usage
+
+    $ ./playtape -h
+    Usage: playtape options...
+
+    -i filename        Input file name
+    -h                 This page
+
+# TZX
+
+**TZX** is a tape format created to allow the faithful reproduction of ZX Spectrum tapes, even those that use custom loading routines. The format is documented [here](http://www.worldofspectrum.org/TZXformat.html).
+
+# T81
 
 **T81** is a tape format used by the [EightyOne](https://sourceforge.net/projects/eightyone-sinclair-emulator/) ZX81 emulator. There's a small utility in the `etc` folder which can create **T81** files from a list of **P** files.
 
-## Tests
+# Tests
 
-The generated wave files were tested only on the [Fuse](http://fuse-emulator.sourceforge.net/fuse.php) and EightyOne emulators. I've tested files from 8-bit, mono, 11,025 Hz to 16-bit, stereo, 192,000 Hz.
+The utilities were tested only on the [Fuse](http://fuse-emulator.sourceforge.net/fuse.php) and EightyOne emulators. I've tested files from 8-bit, mono, 11,025 Hz to 16-bit, stereo, 192,000 Hz.
 
 Please let me know your experiences loading the audio into the actual machines, including which device was used to play the wave files.
 
-## Coroutines
+# Coroutines
 
-I'm working on another utility that'll play **TZX** and **T81** tapes directly to the audio device. For that, I need to generate wave data in chunks, which would be somewhat difficult specially in the **T81** case. I decided to use soft coroutines to make my life easier, and ended up with the macros in `src/coro.h`.
+To generate wave data in chunks, which would be somewhat difficult specially in the **T81** case, I decided to use soft coroutines to make my life easier, and ended up with the macros in `src/coro.h`.
 
 The end result is something that resembles BASIC (with GOTOs and GOSUBs), see usage examples in `tzx_play` and `t81_play`.
+
+`src/coro.h` is released under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/).

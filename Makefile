@@ -55,10 +55,13 @@ OBJ = $(SRC:.c=.o)
 %$(OBJEXT): %.c
 	gcc $(CFLAGS) -c $< -o $@
 
-all: tape2wav$(EXEEXT)
+all: tape2wav$(EXEEXT) playtape$(EXEEXT)
 
 tape2wav$(EXEEXT): $(OBJ) src/tape2wav.o
 	gcc -o $@ $+ -lm
 
+playtape$(EXEEXT): $(OBJ) src/playtape.o
+	gcc -o $@ $+ -lSDL2main -lSDL2
+
 clean:
-	rm -rf tape2wav$(EXEEXT) $(OBJ) src/tape2wav.o
+	rm -rf $(OBJ) tape2wav$(EXEEXT) src/tape2wav.o playtape$(EXEEXT) src/playtape.o

@@ -1,6 +1,10 @@
 #ifndef CORO_H
 #define CORO_H
 
+/*
+Released under the CC0: https://creativecommons.org/publicdomain/zero/1.0/
+*/
+
 /* Use at the beginning of the coroutine, you must have declared a variable coro_t* coro */
 #define CORO_ENTER() \
   { \

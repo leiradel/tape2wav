@@ -1,6 +1,6 @@
 # tape2wav
 
-This utility generates a wave file from a tape file. It uses [`libspectrum`](http://fuse-emulator.sourceforge.net/libspectrum.php) to handle **TZX** tapes, and code derived from [`p2raw`](https://odemar.home.xs4all.nl/zx81/zx81.htm) to handle **T81** tapes. It seems that `libspectrum` doesn't handle ZX81 data inside **TZX** tapes very well, but let me know otherwise (even better: submit a push request).
+This utility generates a wave file from a tape file. It uses [`libspectrum`](http://fuse-emulator.sourceforge.net/libspectrum.php) to handle **TZX** tapes, and code derived from [`p2raw`](https://odemar.home.xs4all.nl/zx81/zx81.htm) to handle **T81** tapes. It seems that `libspectrum` doesn't handle ZX81 data inside **TZX** tapes very well, but let me know otherwise (even better: submit a pull request).
 
 ## Usage
 

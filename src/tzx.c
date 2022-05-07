@@ -8,6 +8,7 @@ Copyright (c) 2007 Fredrick Meunier
 #include <tzx.h>
 #include <libspectrum.h>
 #include <coro.h>
+#include <string.h>
 
 /* ZX Spectrum clock */
 #define MHZ 3500000ULL

@@ -27,6 +27,15 @@
 *.i*86
 *.x86_64
 *.hex
+playtape
+tape2wav
 
 # Debug files
 *.dSYM/
+
+# VSCode artifacts
+**/.vscode/
+
+# CLion / IntelliJ
+**/.idea/
+
